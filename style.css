@@ -34,23 +34,28 @@ body {
 }
 
 #accordion li label span {
-  transform: rotate(90deg);
   font-size: 22px;
   color: dodgerblue;
+  transition: transform 0.5s;
 }
 
-#accordion label + input[type="radio"] {
+#accordion input[type="checkbox"] {
   display: none;
 }
 
 #accordion .content {
-  padding: 0 10px;
+  padding: 10px;
   line-height: 26px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s;
+  background: white;
 }
 
-#accordion label + input[type="radio"]:checked + .content {
+#accordion input[type="checkbox"]:checked ~ .content {
   max-height: 400px;
+}
+
+#accordion input[type="checkbox"]:checked ~ label span {
+  transform: rotate(90deg);
 }
